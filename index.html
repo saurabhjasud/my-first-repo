@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyBuddy | Student Planner</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f3ff;
+            color: #292744;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #6554c0;
+            color: white;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            font-size: 27px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffe082;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px;
+            background: linear-gradient(135deg, #6554c0, #a18aff);
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        h2.section-title {
+            text-align: center;
+            color: #5140a5;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px #29274412;
+        }
+
+        .card h3 {
+            color: #6554c0;
+            margin-bottom: 10px;
+        }
+
+        .emoji {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .planner {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            margin-top: 35px;
+            box-shadow: 0 5px 18px #29274412;
+        }
+
+        .planner input {
+            width: 70%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        button {
+            background: #6554c0;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #49379e;
+        }
+
+        #taskList {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        #taskList li {
+            background: #f4f3ff;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            overflow-wrap: anywhere;
+        }
+
+        #taskList li span {
+            flex: 1;
+        }
+
+        #taskList li.done span {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+        }
+
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+
+        .quote {
+            text-align: center;
+            padding: 35px 20px;
+            color: #5140a5;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        footer {
+            background: #292744;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 5px;
+                display: inline-block;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .planner input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>📚 StudyBuddy</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#subjects">Subjects</a>
+            <a href="#timetable">Timetable</a>
+            <a href="#tasks">My Tasks</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>Your Study Journey Starts Here!</h2>
+        <p>Plan smarter, study better, and achieve your goals.</p>
+    </section>
+
+    <main class="container">
+
+        <section id="subjects">
+            <h2 class="section-title">📖 My Subjects</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="emoji">💻</div>
+                    <h3>Web Development</h3>
+                    <p>Learn HTML, CSS, JavaScript, and website design.</p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🧮</div>
+                    <h3>Mathematics</h3>
+                    <p>Practice formulas, solve problems, and revise.</p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🗄️</div>
+                    <h3>Database</h3>
+                    <p>Understand SQL, tables, and database concepts.</p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🐍</div>
+                    <h3>Programming</h3>
+                    <p>Improve coding skills through daily practice.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="timetable" class="planner">
+            <h2 class="section-title">🗓️ Weekly Study Timetable</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Monday</h3>
+                    <p>9:00 AM - HTML & CSS</p>
+                    <p>4:00 PM - Mathematics</p>
+                </div>
+
+                <div class="card">
+                    <h3>Tuesday</h3>
+                    <p>9:00 AM - Programming</p>
+                    <p>4:00 PM - Database</p>
+                </div>
+
+                <div class="card">
+                    <h3>Wednesday</h3>
+                    <p>9:00 AM - Mathematics</p>
+                    <p>4:00 PM - Web Development</p>
+                </div>
+
+                <div class="card">
+                    <h3>Thursday - Friday</h3>
+                    <p>9:00 AM - Coding Practice</p>
+                    <p>4:00 PM - Revision</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tasks" class="planner">
+            <h2 class="section-title">✅ My To-Do List</h2>
+
+            <form id="taskForm">
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Enter a study task..."
+                    aria-label="New study task"
+                    required
+                >
+                <button type="submit">Add Task +</button>
+            </form>
+
+            <ul id="taskList"></ul>
+        </section>
+
+        <section class="quote">
+            <p>"Success is the sum of small efforts repeated every day."</p>
+            <p>✨ Keep learning. Keep growing. ✨</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 StudyBuddy | Made with ❤️ by a Student</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("taskForm");
+        const input = document.getElementById("taskInput");
+        const taskList = document.getElementById("taskList");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const task = input.value.trim();
+
+            if (task === "") {
+                return;
+            }
+
+            const li = document.createElement("li");
+            const checkbox = document.createElement("input");
+            const text = document.createElement("span");
+            const deleteButton = document.createElement("button");
+
+            checkbox.type = "checkbox";
+            checkbox.setAttribute("aria-label", "Mark task complete");
+
+            checkbox.addEventListener("change", function() {
+                li.classList.toggle("done", checkbox.checked);
+            });
+
+            text.textContent = task;
+
+            deleteButton.textContent = "Delete";
+            deleteButton.className = "delete-btn";
+
+            deleteButton.addEventListener("click", function() {
+                li.remove();
+            });
+
+            li.append(checkbox, text, deleteButton);
+            taskList.appendChild(li);
+
+            input.value = "";
+            input.focus();
+        });
+    </script>
+
+</body>
+</html>
